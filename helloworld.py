@@ -23,8 +23,9 @@ def getPolarity(text):
 
 client = tweepy.Client(bearer_token=api_keys.BEARER_TOKEN)
 
-#query = 'Argentina lang:en'
-raw_tweets = client.get_users_tweets(id='50393960', max_results=10)
+query = 'liverpool fc transfer news lang:en'
+#raw_tweets = client.get_users_tweets(id='343627165', max_results=10)
+raw_tweets = client.search_recent_tweets(query=query, max_results=50)
 clean_tweets = []
 
 for tweet in raw_tweets.data:
