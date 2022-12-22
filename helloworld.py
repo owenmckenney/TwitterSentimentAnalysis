@@ -1,3 +1,4 @@
+import api_keys
 import tweepy
 from textblob import TextBlob
 from wordcloud import WordCloud
@@ -20,9 +21,9 @@ def getSubjectivity(text):
 def getPolarity(text):
     return round(TextBlob(text).sentiment.polarity, 4)
 
-client = tweepy.Client(bearer_token='AAAAAAAAAAAAAAAAAAAAANaYkgEAAAAA9vWJjYf9I6%2FMkyIswgVV3Tu6jPc%3DDXsc8bpmJLVPRQ6hNbVi4Q0bm9nhms5yG1XlI5CnHyUTjSubqh')
+client = tweepy.Client(bearer_token=api_keys.BEARER_TOKEN)
 
-query = 'Argentina lang:en'
+#query = 'Argentina lang:en'
 raw_tweets = client.get_users_tweets(id='50393960', max_results=10)
 clean_tweets = []
 
